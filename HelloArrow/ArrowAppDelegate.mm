@@ -17,8 +17,6 @@
     self.window = [[UIWindow alloc] initWithFrame:screenBounds];
     self.view = [[GLView alloc] initWithFrame:screenBounds];
     [self.window addSubview:self.view];
-	self.rootViewController = [[ArrowViewController alloc] init];
-	[self.window setRootViewController: self.rootViewController];
     [self.window makeKeyAndVisible];
     
     return YES;

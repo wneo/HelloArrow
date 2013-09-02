@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "GLView.h"
-#import "ArrowViewController.h"
 
 @interface ArrowAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) ArrowViewController *rootViewController;
 @property (strong, nonatomic) GLView *view;
 
 @end
