@@ -7,6 +7,10 @@
 //
 
 #import "GLView.h"
+#import <OpenGLES/EAGLDrawable.h>
+#import <OpenGLES/ES2/gl.h> //  <-- for GL_RENDERBUFFER only
+#import <mach/mach_time.h>
+
 
 @implementation GLView
 
@@ -24,19 +28,26 @@
             return nil;
         }
         //initialize for opengl
-        GLuint frameBuffer, renderBuffer;
-        glGenFramebuffersOES(1, &frameBuffer);//创建frame(帧)缓冲区
-        glGenRenderbuffersOES(1, &renderBuffer);//创建render（渲染）缓冲区
-        //绑定管线
-        glBindFramebufferOES(GL_FRAMEBUFFER_OES, frameBuffer);
-        glBindRenderbufferOES(GL_RENDERBUFFER_OES, renderBuffer);
+
         //分配存储空间
-        [self.glContext renderbufferStorage:GL_RENDERBUFFER_OES fromDrawable:eaglLayer];
-        //绑定 frame 和 render
-        glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, renderBuffer);
-        //构建坐标系统
-        glViewport(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
-        [self drawView];
+        [self.glContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:eaglLayer];
+        
+        self.renderEngine = CreateRenderer1();
+        self.renderEngine->Initalize(CGRectGetWidth(frame), CGRectGetHeight(frame));
+      
+        [self drawView:nil];
+        
+        self.timeStamp = CACurrentMediaTime();
+        CADisplayLink *displayLink = nil;
+        displayLink = [CADisplayLink displayLinkWithTarget:self
+                                                  selector:@selector(drawView:)];
+        [displayLink addToRunLoop:[NSRunLoop currentRunLoop]
+                          forMode:NSDefaultRunLoopMode];
+        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didRotate:)
+                                                     name:UIDeviceOrientationDidChangeNotification
+                                                   object:nil];
     }
     return self;
 }
@@ -67,13 +78,23 @@
 
 #pragma mark - draw
 //这里相当于原ios里的drawRect, 但更提升一层性能（缓冲操作）
-- (void)drawView
+- (void)drawView: (CADisplayLink *)displayLink
 {
-    glClearColor(0.5f, 0.5f, 0.5f, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
-    //推送到屏幕
-    [self.glContext presentRenderbuffer:GL_RENDERBUFFER_OES];
+//    [self.glContext presentRenderbuffer:GL_RENDERBUFFER_OES];
+    if (displayLink != nil) {
+        float elapsedSeconds = displayLink.timestamp - self.timeStamp;
+        self.timeStamp = displayLink.timestamp;
+        self.renderEngine->UpdataAnimation(elapsedSeconds);
+    }
+    self.renderEngine->Render();
+    [self.glContext presentRenderbuffer:GL_RENDERBUFFER];
     
+}
+- (void)didRotate:(NSNotification *)notification
+{
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    self.renderEngine->OnRotate((DeviceOrientation)orientation);
+    [self drawView:nil];
 }
 
 

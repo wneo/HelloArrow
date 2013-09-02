@@ -7,41 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5315AEB17D2411E003C7DF7 /* RenderingEngine1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5315AE917D2411E003C7DF7 /* RenderingEngine1.cpp */; };
 		B5A7686217D20A7200C719C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A7686117D20A7200C719C1 /* UIKit.framework */; };
 		B5A7686417D20A7200C719C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A7686317D20A7200C719C1 /* Foundation.framework */; };
 		B5A7686617D20A7200C719C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A7686517D20A7200C719C1 /* CoreGraphics.framework */; };
 		B5A7686C17D20A7200C719C1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5A7686A17D20A7200C719C1 /* InfoPlist.strings */; };
-		B5A7686E17D20A7200C719C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A7686D17D20A7200C719C1 /* main.m */; };
-		B5A7687217D20A7200C719C1 /* ArrowAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A7687117D20A7200C719C1 /* ArrowAppDelegate.m */; };
+		B5A7686E17D20A7200C719C1 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5A7686D17D20A7200C719C1 /* main.mm */; };
+		B5A7687217D20A7200C719C1 /* ArrowAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5A7687117D20A7200C719C1 /* ArrowAppDelegate.mm */; };
 		B5A7687417D20A7200C719C1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A7687317D20A7200C719C1 /* Default.png */; };
 		B5A7687617D20A7200C719C1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A7687517D20A7200C719C1 /* Default@2x.png */; };
 		B5A7687817D20A7200C719C1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A7687717D20A7200C719C1 /* Default-568h@2x.png */; };
-		B5A7687E17D20A7200C719C1 /* ArrowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A7687D17D20A7200C719C1 /* ArrowViewController.m */; };
 		B5A7688517D20B4F00C719C1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A7688417D20B4E00C719C1 /* OpenGLES.framework */; };
 		B5A7688717D20B6800C719C1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A7688617D20B6800C719C1 /* QuartzCore.framework */; };
 		B5A7688A17D20DF400C719C1 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5A7688917D20DF400C719C1 /* GLView.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5315AE917D2411E003C7DF7 /* RenderingEngine1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RenderingEngine1.cpp; path = CPP/RenderingEngine1.cpp; sourceTree = "<group>"; };
 		B5A7685E17D20A7200C719C1 /* HelloArrow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloArrow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5A7686117D20A7200C719C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B5A7686317D20A7200C719C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5A7686517D20A7200C719C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B5A7686917D20A7200C719C1 /* HelloArrow-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HelloArrow-Info.plist"; sourceTree = "<group>"; };
 		B5A7686B17D20A7200C719C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B5A7686D17D20A7200C719C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B5A7686D17D20A7200C719C1 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		B5A7686F17D20A7200C719C1 /* HelloArrow-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloArrow-Prefix.pch"; sourceTree = "<group>"; };
 		B5A7687017D20A7200C719C1 /* ArrowAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrowAppDelegate.h; sourceTree = "<group>"; };
-		B5A7687117D20A7200C719C1 /* ArrowAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrowAppDelegate.m; sourceTree = "<group>"; };
+		B5A7687117D20A7200C719C1 /* ArrowAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ArrowAppDelegate.mm; sourceTree = "<group>"; };
 		B5A7687317D20A7200C719C1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B5A7687517D20A7200C719C1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B5A7687717D20A7200C719C1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		B5A7687C17D20A7200C719C1 /* ArrowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrowViewController.h; sourceTree = "<group>"; };
-		B5A7687D17D20A7200C719C1 /* ArrowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrowViewController.m; sourceTree = "<group>"; };
 		B5A7688417D20B4E00C719C1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B5A7688617D20B6800C719C1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B5A7688817D20DF400C719C1 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLView.h; path = VC/GLView.h; sourceTree = "<group>"; };
 		B5A7688917D20DF400C719C1 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLView.mm; path = VC/GLView.mm; sourceTree = "<group>"; };
+		B5A7688C17D2318500C719C1 /* IRenderingEngine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = IRenderingEngine.hpp; path = CPP/IRenderingEngine.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +92,9 @@
 		B5A7686717D20A7200C719C1 /* HelloArrow */ = {
 			isa = PBXGroup;
 			children = (
+				B5A7688C17D2318500C719C1 /* IRenderingEngine.hpp */,
+				B5315AE917D2411E003C7DF7 /* RenderingEngine1.cpp */,
 				B5A7688B17D20E0500C719C1 /* VC */,
-				B5A7687C17D20A7200C719C1 /* ArrowViewController.h */,
-				B5A7687D17D20A7200C719C1 /* ArrowViewController.m */,
 				B5A7686817D20A7200C719C1 /* Supporting Files */,
 			);
 			path = HelloArrow;
@@ -104,10 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				B5A7687017D20A7200C719C1 /* ArrowAppDelegate.h */,
-				B5A7687117D20A7200C719C1 /* ArrowAppDelegate.m */,
+				B5A7687117D20A7200C719C1 /* ArrowAppDelegate.mm */,
 				B5A7686917D20A7200C719C1 /* HelloArrow-Info.plist */,
 				B5A7686A17D20A7200C719C1 /* InfoPlist.strings */,
-				B5A7686D17D20A7200C719C1 /* main.m */,
+				B5A7686D17D20A7200C719C1 /* main.mm */,
 				B5A7686F17D20A7200C719C1 /* HelloArrow-Prefix.pch */,
 				B5A7687317D20A7200C719C1 /* Default.png */,
 				B5A7687517D20A7200C719C1 /* Default@2x.png */,
@@ -191,10 +191,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5A7686E17D20A7200C719C1 /* main.m in Sources */,
-				B5A7687217D20A7200C719C1 /* ArrowAppDelegate.m in Sources */,
-				B5A7687E17D20A7200C719C1 /* ArrowViewController.m in Sources */,
+				B5A7686E17D20A7200C719C1 /* main.mm in Sources */,
+				B5A7687217D20A7200C719C1 /* ArrowAppDelegate.mm in Sources */,
 				B5A7688A17D20DF400C719C1 /* GLView.mm in Sources */,
+				B5315AEB17D2411E003C7DF7 /* RenderingEngine1.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +311,7 @@
 				B5A7688317D20A7200C719C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
