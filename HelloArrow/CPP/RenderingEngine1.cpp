@@ -45,7 +45,7 @@ const Vertex Vertices[] = {
 
 RenderingEngine1::RenderingEngine1()
 {
-
+	// Create & bind the color buffer so that the caller can allocate its space.
     glGenRenderbuffersOES(1, &m_renderBuffer);//创建render（渲染）缓冲区
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, m_renderBuffer);//绑定管线
 }

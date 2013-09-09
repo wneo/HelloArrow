@@ -29,11 +29,13 @@
         }
         //initialize for opengl
 
-        //分配存储空间
-        [self.glContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:eaglLayer];
-        
+      
+        //1. 配置相关缓冲区
         self.renderEngine = CreateRenderer1();
         self.renderEngine->Initalize(CGRectGetWidth(frame), CGRectGetHeight(frame));
+		
+		//2. 根据配置分配存储空间
+        [self.glContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:eaglLayer];
       
         [self drawView:nil];
         
