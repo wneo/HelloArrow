@@ -10,16 +10,23 @@
 #include <OpenGLES/ES1/glext.h>
 #include "IRenderingEngine.hpp"
 
+
+static const float RevolutionPerSecond = 1;
+
 class RenderingEngine1 : public IRenderingEngine {
 private:
     GLuint m_frameBuffer;
     GLuint m_renderBuffer;
+	float m_currentAngle;
+	float m_desiredAngle;
     
+	float RotationDirection() const;
+	
 public:
     RenderingEngine1();
     void Initalize(int width, int height);
     void Render() const;
-    void UpdataAnimation(float timeStep);
+    void UpdateAnimation(float timeStep);
     void OnRotate(DeviceOrientation newOrientation);
 };
 
@@ -67,7 +74,12 @@ void RenderingEngine1::Initalize(int width, int height)
     const float maxX = 2;
     const float maxY = 3;
     glOrthof(-maxX, +maxX, -maxY, +maxY, -1, 1);
+	
     glMatrixMode(GL_MODELVIEW);
+	
+	// Initialize the rotation animation state.
+	OnRotate(DeviceOrientationPortrait);
+	m_currentAngle = m_desiredAngle;
 }
 
 void RenderingEngine1::Render() const
@@ -75,6 +87,11 @@ void RenderingEngine1::Render() const
     //利用灰色清除缓冲区
     glClearColor(0.5f, 0.5f, 0.5f, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+	
+	
+	glPushMatrix();
+	glRotatef(m_currentAngle, 0, 0, 1);
+	
     //设置顶点属性
     glEnableClientState(GL_VERTEX_ARRAY);//位置
     glEnableClientState(GL_COLOR_ARRAY);//颜色
@@ -87,15 +104,53 @@ void RenderingEngine1::Render() const
     //关闭顶点属性 (后续不会继续使用时关闭)
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
+	
+	glPopMatrix();
 }
 
-void RenderingEngine1::UpdataAnimation(float timeStep)
+float RenderingEngine1::RotationDirection() const
 {
-    
+	float delta = m_desiredAngle - m_currentAngle;
+	if (delta == 0)
+		return 0;
+	bool counterclockwise = ((delta > 0 && delta <= 180) || (delta < -180));
+	return counterclockwise ? +1 : -1;
+}
+
+void RenderingEngine1::UpdateAnimation(float timeStep)
+{
+    float direction = RotationDirection();
+	if (direction == 0)
+		return;
+	float degrees = timeStep * 360 * RevolutionPerSecond;
+	m_currentAngle += degrees * direction;
+	// Ensure that the angle stays within [0, 360).
+	if (m_currentAngle >= 360)
+		m_currentAngle -= 360;
+	else if (m_currentAngle < 0)
+		m_currentAngle += 360;
+	// If the rotation direction changed, then we overshot the desired angle.
+	if (RotationDirection() != direction)
+		m_currentAngle = m_desiredAngle;
 }
 
 void RenderingEngine1::OnRotate(DeviceOrientation newOrientation)
 {
-    
+    float angle = 0;
+	switch (newOrientation) {
+		case DeviceOrientationLandscapeLeft:
+			angle = 270;
+			break;
+		case DeviceOrientationPortraitUpsideDown:
+			angle = 180;
+			break;
+		case DeviceOrientationLandscapeRight:
+			angle = 90;
+			break;
+		default:
+			break;
+			
+	}
+	m_desiredAngle = angle;
 }
 

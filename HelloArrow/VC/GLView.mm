@@ -86,7 +86,7 @@
     if (displayLink != nil) {
         float elapsedSeconds = displayLink.timestamp - self.timeStamp;
         self.timeStamp = displayLink.timestamp;
-        self.renderEngine->UpdataAnimation(elapsedSeconds);
+        self.renderEngine->UpdateAnimation(elapsedSeconds);
     }
     self.renderEngine->Render();
     [self.glContext presentRenderbuffer:GL_RENDERBUFFER];
