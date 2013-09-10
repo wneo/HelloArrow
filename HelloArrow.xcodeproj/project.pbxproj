@@ -20,6 +20,9 @@
 		B5A7688517D20B4F00C719C1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A7688417D20B4E00C719C1 /* OpenGLES.framework */; };
 		B5A7688717D20B6800C719C1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A7688617D20B6800C719C1 /* QuartzCore.framework */; };
 		B5A7688A17D20DF400C719C1 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5A7688917D20DF400C719C1 /* GLView.mm */; };
+		B5AEFD3E17DEFAEC00257CC5 /* Simple.vert in Sources */ = {isa = PBXBuildFile; fileRef = B5AEFD3D17DEFAEC00257CC5 /* Simple.vert */; };
+		B5AEFD4017DEFB5C00257CC5 /* Simple.frag in Sources */ = {isa = PBXBuildFile; fileRef = B5AEFD3F17DEFB5C00257CC5 /* Simple.frag */; };
+		B5AEFD4217DF052A00257CC5 /* RenderingEngine2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AEFD4117DF052A00257CC5 /* RenderingEngine2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		B5A7688617D20B6800C719C1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B5A7688817D20DF400C719C1 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLView.h; path = VC/GLView.h; sourceTree = "<group>"; };
 		B5A7688917D20DF400C719C1 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLView.mm; path = VC/GLView.mm; sourceTree = "<group>"; };
+		B5AEFD3D17DEFAEC00257CC5 /* Simple.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Simple.vert; path = HelloArrow/shaders/Simple.vert; sourceTree = "<group>"; };
+		B5AEFD3F17DEFB5C00257CC5 /* Simple.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Simple.frag; path = HelloArrow/shaders/Simple.frag; sourceTree = "<group>"; };
+		B5AEFD4117DF052A00257CC5 /* RenderingEngine2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RenderingEngine2.cpp; path = CPP/RenderingEngine2.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +98,10 @@
 		B5A7686717D20A7200C719C1 /* HelloArrow */ = {
 			isa = PBXGroup;
 			children = (
+				B5AEFD4117DF052A00257CC5 /* RenderingEngine2.cpp */,
 				B568305C17D4F42500167345 /* IRenderingEngine.hpp */,
 				B568305D17D4F42500167345 /* RenderingEngine1.cpp */,
+				B5AEFD3C17DEFA9100257CC5 /* Shaders */,
 				B5A7688B17D20E0500C719C1 /* VC */,
 				B5A7686817D20A7200C719C1 /* Supporting Files */,
 			);
@@ -123,6 +131,16 @@
 				B5A7688917D20DF400C719C1 /* GLView.mm */,
 			);
 			name = VC;
+			sourceTree = "<group>";
+		};
+		B5AEFD3C17DEFA9100257CC5 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				B5AEFD3D17DEFAEC00257CC5 /* Simple.vert */,
+				B5AEFD3F17DEFB5C00257CC5 /* Simple.frag */,
+			);
+			name = Shaders;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +213,9 @@
 				B568305E17D4F42500167345 /* RenderingEngine1.cpp in Sources */,
 				B568306117D4F43500167345 /* ArrowAppDelegate.mm in Sources */,
 				B568306217D4F43500167345 /* main.mm in Sources */,
+				B5AEFD3E17DEFAEC00257CC5 /* Simple.vert in Sources */,
+				B5AEFD4017DEFB5C00257CC5 /* Simple.frag in Sources */,
+				B5AEFD4217DF052A00257CC5 /* RenderingEngine2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

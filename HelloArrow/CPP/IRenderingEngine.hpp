@@ -31,4 +31,5 @@ struct IRenderingEngine {
 };
 
 struct IRenderingEngine *CreateRenderer1();
+struct IRenderingEngine *CreateRenderer2();
 #endif

@@ -21,17 +21,42 @@
     if (self) {
         CAEAGLLayer *eaglLayer = (CAEAGLLayer *)super.layer;
         eaglLayer.opaque = YES;//自己控制 透明度等属性（默认由Quartz控制）， opengl很好控制
-        //初始化 context 并设置 opengl api 的版本
-        self.glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-        if ((! self.glContext) || (! [EAGLContext setCurrentContext:self.glContext]))  {
-            self = nil;
-            return nil;
-        }
-        //initialize for opengl
-
-      
-        //1. 配置相关缓冲区
-        self.renderEngine = CreateRenderer1();
+		
+		
+//        //初始化 context 并设置 opengl api 的版本
+//        self.glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
+//        if ((! self.glContext) || (! [EAGLContext setCurrentContext:self.glContext]))  {
+//            self = nil;
+//            return nil;
+//        }
+//        //initialize for opengl
+//
+//      
+//        //1. 配置相关缓冲区
+//        self.renderEngine = CreateRenderer1();
+		
+		EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
+		self.glContext = [[EAGLContext alloc] initWithAPI:api];
+		if (!self.glContext) {
+			api = kEAGLRenderingAPIOpenGLES1;
+            self.glContext = [[EAGLContext alloc] initWithAPI:api];
+		}
+		
+		if (!self.glContext || ![EAGLContext setCurrentContext:self.glContext]) {
+			self = nil;
+			return nil;
+		}
+		
+		if (api == kEAGLRenderingAPIOpenGLES1) {
+			NSLog(@"Using OpenGL ES 1.1");
+			self.renderEngine = CreateRenderer1();
+		} else {
+			NSLog(@"Using OpenGL ES 2.0");
+			self.renderEngine = CreateRenderer2();
+		}
+		
+		
+		
         self.renderEngine->Initalize(CGRectGetWidth(frame), CGRectGetHeight(frame));
 		
 		//2. 根据配置分配存储空间
@@ -97,6 +122,7 @@
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     self.renderEngine->OnRotate((DeviceOrientation)orientation);
     [self drawView:nil];
+	
 }
 
 
